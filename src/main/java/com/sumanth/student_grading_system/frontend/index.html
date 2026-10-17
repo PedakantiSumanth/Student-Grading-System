@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Grading System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Student Grading System</h1>
+
+        <p>Manage students, subjects, marks and grades</p>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- Dashboard -->
+
+        <section class="dashboard">
+
+            <div class="card">
+
+                <h2>Students</h2>
+
+                <p id="studentCount">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Subjects</h2>
+
+                <p id="subjectCount">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Marks</h2>
+
+                <p id="markCount">0</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Grade</h2>
+
+                <p id="grade">-</p>
+
+                <small id="average">
+                    Percentage: -
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- View Grade -->
+
+        <section class="students-section">
+
+            <h2>View Student Grade</h2>
+
+            <select id="gradeStudentId">
+
+                <option value="">
+                    Select Student
+                </option>
+
+            </select>
+
+            <button onclick="viewSelectedGrade()">
+                View Grade
+            </button>
+
+
+            <div id="gradeStudentDetails">
+
+                <p>
+                    Select a student to view the grade.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Student Form -->
+
+        <section class="students-section">
+
+            <h2>Student Form</h2>
+
+            <form id="studentForm">
+
+                <input type="text" id="rollNumber" placeholder="Roll Number" required>
+
+                <input type="text" id="name" placeholder="Student Name" required>
+
+                <input type="email" id="email" placeholder="Email" required>
+
+                <input type="text" id="department" placeholder="Department" required>
+
+                <input type="number" id="year" placeholder="Year (1-4)" min="1" max="4" required>
+
+                <input type="text" id="section" placeholder="Section" required>
+
+                <button type="submit" id="studentSubmitButton">
+                    Add Student
+                </button>
+
+                <button type="button" id="studentCancelButton" onclick="cancelStudentEdit()" style="display: none;">
+                    Cancel
+                </button>
+
+            </form>
+
+            <p id="studentMessage"></p>
+
+        </section>
+
+
+
+        <!-- Subject Form -->
+
+        <section class="students-section">
+
+            <h2>Subject Form</h2>
+
+            <form id="subjectForm">
+
+                <input type="text" id="subjectCode" placeholder="Subject Code" required>
+
+                <input type="text" id="subjectName" placeholder="Subject Name" required>
+
+                <input type="number" id="maxMarks" placeholder="Maximum Marks" min="1" required>
+
+                <button type="submit" id="subjectSubmitButton">
+                    Add Subject
+                </button>
+
+                <button type="button" id="subjectCancelButton" onclick="cancelSubjectEdit()" style="display: none;">
+                    Cancel
+                </button>
+
+            </form>
+
+            <p id="subjectMessage"></p>
+
+        </section>
+
+
+
+        <!-- Marks Form -->
+
+        <section class="students-section">
+
+            <h2>Marks Form</h2>
+
+            <form id="markForm">
+
+                <select id="studentId" required>
+
+                    <option value="">
+                        Select Student
+                    </option>
+
+                </select>
+
+
+                <select id="subjectId" required>
+
+                    <option value="">
+                        Select Subject
+                    </option>
+
+                </select>
+
+
+                <input type="number" id="marks" placeholder="Enter Marks" min="0" required>
+
+
+                <button type="submit" id="markSubmitButton">
+                    Add Marks
+                </button>
+
+                <button type="button" id="markCancelButton" onclick="cancelMarkEdit()" style="display: none;">
+                    Cancel
+                </button>
+
+            </form>
+
+            <p id="markMessage"></p>
+
+        </section>
+
+
+
+        <!-- Student List -->
+
+        <section class="students-section">
+
+            <h2>Student List</h2>
+
+            <button onclick="loadStudents()">
+                Load Students
+            </button>
+
+            <div id="studentList">
+
+                <p>
+                    Loading students...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Subject List -->
+
+        <section class="students-section">
+
+            <h2>Subject List</h2>
+
+            <button onclick="loadSubjects()">
+                Load Subjects
+            </button>
+
+            <div id="subjectList">
+
+                <p>
+                    Loading subjects...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Marks List -->
+
+        <section class="students-section">
+
+            <h2>Marks List</h2>
+
+            <button onclick="loadMarks()">
+                Load Marks
+            </button>
+
+            <div id="markList">
+
+                <p>
+                    Loading marks...
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
